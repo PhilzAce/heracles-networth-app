@@ -11,7 +11,7 @@ if(isset($_POST['changePwd'])){
       header("Location: ../settings.php?error=emptyfields");
       exit();     
        
-    } elseif($password !== $confirmNewPassword){
+    } elseif( $newPassword !== $confirmNewPassword){
       header("Location: ../settings.php?error=passwordmatch");
       exit();
     } else{
