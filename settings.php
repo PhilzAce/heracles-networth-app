@@ -42,6 +42,29 @@
 <p class="">Change password</p>
                     </div>
                     <div class="settings-content">
+                    <?php
+                            if (isset($_GET["error"])) {
+                               if ($_GET['error']=='emptyfields') {
+                                    echo '<p><p style = "text-align:center" class="text-danger"> Please Input all fields ...correctly </p><p>';
+                               }                           
+                                   elseif($_GET['error']=='passwordmatch'){
+                                    echo '<p><p style = "text-align:center" class="text-danger"> please confirm password</p><p>';
+                                   }
+                                   
+
+                                   
+                                   elseif($_GET['error']=='pwdChanged'){
+                                    echo '<p><p style = "text-align:center" class="text-danger"> Password successfully changed</p><p>';
+                                   }
+                                   elseif($_GET['error']=='pwdnotchanged'){
+                                    echo '<p><p style = "text-align:center" class="text-danger"> Password not changed</p><p>';
+                                   }
+
+                                   else{
+                                    echo '<p><p style = "text-align:center" class="text-danger">Something went wrong ...please retry letter</p><p>';
+                                   }    
+                                }
+                           ?> 
                     <form method="POST" action="includes/changePassword.php">
                         <div class="form-group">
                             <label for="InputEmail1">Email address</label>
